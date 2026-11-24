@@ -1,0 +1,127 @@
+@import "tailwindcss";
+
+/* Design tokens — see DESIGN.md */
+@theme {
+  --color-*: initial;
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --color-canvas: #000000;
+  --color-inset: #0a0a0a;
+  --color-raised: #111111;
+  --color-hover: #1a1a1a;
+
+  --color-ink: #ffffff;
+  --color-ink-2: #e5e5e5;
+  --color-ink-3: #888888;
+  --color-ink-4: #616161;
+  --color-ink-5: #4d4d4d;
+
+  --color-line-soft: rgb(255 255 255 / 0.08);
+  --color-line: rgb(255 255 255 / 0.12);
+  --color-line-strong: rgb(255 255 255 / 0.2);
+  --color-pitch-line: rgb(255 255 255 / 0.18);
+
+  --color-edge: #10b981;
+  --color-vuln: #f43f5e;
+  --color-shift: #38bdf8;
+
+  --radius-*: initial;
+  --shadow-*: initial;
+  --inset-shadow-*: initial;
+  --drop-shadow-*: initial;
+
+  --text-display-xl: 112px;
+  --text-display-xl--line-height: 0.92;
+  --text-display-xl--letter-spacing: -0.04em;
+  --text-display-lg: 72px;
+  --text-display-lg--line-height: 1;
+  --text-display-lg--letter-spacing: -0.03em;
+  --text-headline-lg: 36px;
+  --text-headline-lg--line-height: 40px;
+  --text-headline-lg--letter-spacing: -0.03em;
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 28px;
+  --text-headline-md--letter-spacing: -0.02em;
+  --text-headline-sm: 15px;
+  --text-headline-sm--line-height: 20px;
+  --text-headline-sm--letter-spacing: -0.01em;
+  --text-lead: 21px;
+  --text-lead--line-height: 34px;
+  --text-body-lg: 15px;
+  --text-body-lg--line-height: 22px;
+  --text-body-md: 13px;
+  --text-body-md--line-height: 18px;
+  --text-caption: 12px;
+  --text-caption--line-height: 16px;
+  --text-label: 11px;
+  --text-label--line-height: 12px;
+  --text-label--letter-spacing: 0.08em;
+  --text-label-sm: 10px;
+  --text-label-sm--line-height: 12px;
+  --text-label-sm--letter-spacing: 0.1em;
+  --text-stat-xl: 48px;
+  --text-stat-xl--line-height: 48px;
+  --text-stat-xl--letter-spacing: -0.03em;
+  --text-stat-lg: 26px;
+  --text-stat-lg--line-height: 28px;
+  --text-stat-lg--letter-spacing: -0.02em;
+  --text-stat-md: 16px;
+  --text-stat-md--line-height: 20px;
+  --text-stat-sm: 11px;
+  --text-stat-sm--line-height: 12px;
+
+  --ease-editorial: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@theme inline {
+  --font-sans: var(--font-inter), "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+
+  body {
+    background-color: var(--color-canvas);
+    color: var(--color-ink);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background-color: var(--color-ink);
+    color: var(--color-canvas);
+  }
+}
+
+@utility font-mono {
+  font-family: var(--font-mono);
+  font-feature-settings: "tnum" 1, "zero" 1;
+  font-variant-numeric: tabular-nums slashed-zero;
+}
+
+@utility fade-in {
+  animation: fade-in 600ms var(--ease-editorial) both;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0ms !important;
+    transition-duration: 0ms !important;
+  }
+}

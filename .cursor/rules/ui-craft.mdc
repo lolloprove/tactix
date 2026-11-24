@@ -1,0 +1,8 @@
+---
+description: Standard grafici e data visualization
+alwaysApply: true
+---
+- Segui rigorosamente `DESIGN.md`.
+- Vieta gradienti viola/blu generici, ombre pesanti, glassmorphism e layout "AI dashboard" pieni di badge inutili.
+- Tutti i valori numerici in tabelle, badge e KPI devono usare `font-mono tabular-nums`.
+- Le visualizzazioni tattiche (campo 2D, scatter plot, radar) devono essere SVG puliti o librerie modulari responsive, leggibili anche su schermo mobile.

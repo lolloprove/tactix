@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Tactix — Nicolò Barella</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background-color: #000000;
+      color: #FFFFFF;
+      min-height: 100vh;
+    }
+    .fade-in {
+      animation: fadeIn 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .nav-link {
+      color: #FFFFFF;
+      text-decoration: none;
+      transition: opacity 0.2s ease;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+    .tabular {
+      font-variant-numeric: tabular-nums;
+    }
+    .hairline-b {
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+    .hairline-t {
+      border-top: 1px solid rgba(255, 255, 255, 0.15);
+    }
+  </style>
+</head>
+<body class="bg-black text-white fade-in">
+<!-- Top bar, tiny and quiet -->
+<header class="w-full px-8 md:px-14 pt-8 md:pt-10 flex items-center justify-between text-[12px] font-normal text-white">
+<div class="w-1/4">
+<a class="nav-link" href="#">Tactix</a>
+</div>
+<nav class="flex items-center justify-center space-x-10 text-center w-2/4">
+<a class="nav-link" href="#">Matches</a>
+<a class="nav-link" href="#">Teams</a>
+<a class="nav-link" href="#">Players</a>
+<a class="nav-link" href="#">About</a>
+</nav>
+<div class="w-1/4 text-right">
+<a class="nav-link" href="#">Subscribe</a>
+</div>
+</header>
+<!-- Main container: 12-column grid, generous margins and whitespace -->
+<main class="max-w-[1400px] mx-auto px-8 md:px-14 pt-24 md:pt-36 pb-36"><!-- Hero Grid: Player Name & Tactical Profile Left, Match Action Photo Right -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-12 items-start">
+<div class="md:col-span-7 flex flex-col justify-between pt-2">
+<div>
+<div class="inline-flex items-center gap-2 mb-6 px-3 py-1 rounded-full border border-[rgba(16,185,129,0.25)] bg-[rgba(16,185,129,0.06)] text-[#10B981] text-[11px] font-medium tracking-wide">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981] animate-pulse"></span>
+        SERIE A 2024/25 · REPORT TATICO ELITE
+      </div>
+<h1 class="text-[68px] sm:text-[90px] md:text-[112px] font-medium leading-[0.92] tracking-[-0.04em] text-white">
+        Nicolò<br/>Barella
+      </h1>
+<p class="text-[#888888] text-[13px] tracking-normal mt-6 md:mt-8 font-normal flex flex-wrap items-center gap-x-3 gap-y-1">
+<span class="text-white font-medium">FC Internazionale</span>
+<span>·</span>
+<span>Centrocampista centrale / Mezzala destra</span>
+<span>·</span>
+<span>27 anni</span>
+<span>·</span>
+<span class="text-[#10B981] font-mono font-medium">98° percentile Serie A</span>
+</p>
+</div>
+<!-- Tactical Role Synthesis -->
+<div class="mt-14 md:mt-20 max-w-[620px]">
+<p class="text-[18px] md:text-[21px] leading-[1.6] font-normal text-[#E5E5E5]">
+        Barella costituisce il perno dinamico del 3-5-2 di Simone Inzaghi: connette la prima costruzione alla rifinitura attraverso costanti inserimenti diagonali nel semi-spazio destro. Garantisce un immediato contro-pressing sulle seconde palle e libera corsie esterne con transizioni a uno o due tocchi.
+      </p>
+</div>
+<!-- Quick Stats Metric Ribbons -->
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-12 pt-8 border-t border-[rgba(255,255,255,0.12)]">
+<div>
+<div class="text-[11px] uppercase tracking-wider text-[#888888] mb-1 font-mono">Passaggi Prog. /90</div>
+<div class="text-[26px] font-medium text-white tabular flex items-baseline gap-1.5">
+          7.82
+          <span class="text-[11px] font-mono text-[#10B981] font-medium">98° pct</span>
+</div>
+</div>
+<div>
+<div class="text-[11px] uppercase tracking-wider text-[#888888] mb-1 font-mono">Recuperi Palla /90</div>
+<div class="text-[26px] font-medium text-white tabular flex items-baseline gap-1.5">
+          8.40
+          <span class="text-[11px] font-mono text-[#10B981] font-medium">94° pct</span>
+</div>
+</div>
+<div>
+<div class="text-[11px] uppercase tracking-wider text-[#888888] mb-1 font-mono">Distanza /90</div>
+<div class="text-[26px] font-medium text-white tabular flex items-baseline gap-1.5">
+          11.8<span class="text-[14px] text-[#888888] font-normal">km</span>
+<span class="text-[11px] font-mono text-[#10B981] font-medium">Top 3%</span>
+</div>
+</div>
+<div>
+<div class="text-[11px] uppercase tracking-wider text-[#888888] mb-1 font-mono">Efficienza Pressing</div>
+<div class="text-[26px] font-medium text-white tabular flex items-baseline gap-1.5">
+          71.8<span class="text-[14px] text-[#888888] font-normal">%</span>
+<span class="text-[11px] font-mono text-[#38BDF8] font-medium">+8.4%</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Match Action Photo with Tactical Overlay Meta -->
+<div class="md:col-span-5 md:pl-4">
+<div class="relative rounded-sm overflow-hidden bg-[#111111] border border-[rgba(255,255,255,0.1)] group">
+<img alt="Nicolò Barella in azione con l'Inter a San Siro" class="w-full h-auto object-cover block" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDC3b_lNG2_nAQXZAtmCTlT4xzI0mwzXZGwrUV3UFV5VrMzMqvYWNfgU35mqCQt5HLxhnsshF-nvBCYqOz38R3tyOScSQrHezEZd6uPj7UGJQOYEypJdyBnShOGsgsyGcvuvJAkkoY_KWJAaiiSjNzaOm4XgSJrv2eY-7cLGWw495J-GJhh3OKD_cve6wbMCN0orGCNqsTVCJv4DbqI3RP4Eq7EhjgNA6loYq6QPBo_"/>
+<div class="absolute bottom-0 inset-x-0 p-5 bg-gradient-to-t from-black via-black/80 to-transparent flex items-center justify-between">
+<div>
+<div class="text-[11px] font-mono uppercase tracking-wider text-[#888888]">Partita campione</div>
+<div class="text-[14px] font-medium text-white mt-0.5">Inter vs AC Milan · Serie A</div>
+</div>
+<div class="text-right">
+<span class="inline-block px-2.5 py-1 text-[11px] font-mono font-medium rounded bg-[#10B981]/20 text-[#10B981] border border-[#10B981]/40">Rating: 8.6</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Mid Section: Radar Chart and Tactical Corridor / Pitch Territory -->
+<section class="py-24 md:py-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center border-t border-b border-[rgba(255,255,255,0.12)] my-20">
+<!-- Left Column: High Precision Radar Chart -->
+<div class="lg:col-span-6 flex flex-col items-center justify-center p-4">
+<div class="w-full flex items-center justify-between mb-8 max-w-[420px]">
+<div>
+<h3 class="text-[13px] uppercase tracking-wider font-mono text-[#888888]">Profilo Tattico Radar</h3>
+<p class="text-[15px] font-medium text-white mt-0.5">Percentili ruolo vs Mediani Top 5 Leghe</p>
+</div>
+<span class="text-[12px] font-mono text-[#10B981] bg-[#10B981]/10 px-2 py-0.5 rounded border border-[#10B981]/25">Serie A 24/25</span>
+</div>
+<div class="w-[340px] h-[340px] relative">
+<svg class="w-full h-full overflow-visible" viewbox="0 0 300 300">
+<defs>
+<lineargradient id="emeraldGlow" x1="0%" x2="100%" y1="0%" y2="100%">
+<stop offset="0%" stop-color="#10B981" stop-opacity="0.35"></stop>
+<stop offset="100%" stop-color="#10B981" stop-opacity="0.05"></stop>
+</lineargradient>
+</defs>
+<!-- Concentric Reference Polygons -->
+<polygon fill="none" points="150,30 264,113 220,247 80,247 36,113" stroke="rgba(255, 255, 255, 0.15)" stroke-width="1"></polygon>
+<polygon fill="none" points="150,60 235,122 202,223 98,223 65,122" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"></polygon>
+<polygon fill="none" points="150,90 207,131 185,198 115,198 93,131" stroke="rgba(255, 255, 255, 0.08)" stroke-width="1"></polygon>
+<polygon fill="none" points="150,120 178,141 167,174 133,174 122,141" stroke="rgba(255, 255, 255, 0.05)" stroke-width="1"></polygon>
+<!-- Axis lines -->
+<line stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" x1="150" x2="150" y1="150" y2="30"></line>
+<line stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" x1="150" x2="264" y1="150" y2="113"></line>
+<line stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" x1="150" x2="220" y1="150" y2="247"></line>
+<line stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" x1="150" x2="80" y1="150" y2="247"></line>
+<line stroke="rgba(255, 255, 255, 0.12)" stroke-width="1" x1="150" x2="36" y1="150" y2="113"></line>
+<!-- Average Benchmark Polygon in subtle dashed grey -->
+<polygon fill="none" points="150,95 200,135 180,190 120,190 100,135" stroke="rgba(255, 255, 255, 0.3)" stroke-dasharray="3,3" stroke-width="1"></polygon>
+<!-- Player Value Polygon with translucent emerald fill & sharp emerald stroke -->
+<polygon fill="url(#emeraldGlow)" points="150,36 258,116 212,234 94,236 44,118" stroke="#10B981" stroke-width="2"></polygon>
+<!-- Value Nodes -->
+<circle cx="150" cy="36" fill="#10B981" r="4" stroke="#000000" stroke-width="1.5"></circle>
+<circle cx="258" cy="116" fill="#10B981" r="4" stroke="#000000" stroke-width="1.5"></circle>
+<circle cx="212" cy="234" fill="#10B981" r="4" stroke="#000000" stroke-width="1.5"></circle>
+<circle cx="94" cy="236" fill="#10B981" r="4" stroke="#000000" stroke-width="1.5"></circle>
+<circle cx="44" cy="118" fill="#10B981" r="4" stroke="#000000" stroke-width="1.5"></circle>
+<!-- 5 Axis Labels with Metric Percentiles -->
+<text fill="#FFFFFF" font-size="11" font-weight="500" text-anchor="middle" x="150" y="14">Progressione <tspan fill="#10B981" font-family="monospace">(98°)</tspan></text>
+<text fill="#FFFFFF" font-size="11" font-weight="500" text-anchor="start" x="282" y="116">Recupero palla <tspan fill="#10B981" font-family="monospace">(94°)</tspan></text>
+<text fill="#FFFFFF" font-size="11" font-weight="500" text-anchor="middle" x="234" y="270">Ritenzione <tspan fill="#10B981" font-family="monospace">(89°)</tspan></text>
+<text fill="#FFFFFF" font-size="11" font-weight="500" text-anchor="middle" x="66" y="270">Entrate in area <tspan fill="#10B981" font-family="monospace">(82°)</tspan></text>
+<text fill="#FFFFFF" font-size="11" font-weight="500" text-anchor="end" x="22" y="116">Pressing alto <tspan fill="#10B981" font-family="monospace">(96°)</tspan></text>
+</svg>
+</div>
+</div>
+<!-- Right Column: Pitch Territory / Heatmap Zone & Operational Tendencies -->
+<div class="lg:col-span-6 lg:pl-8">
+<div class="mb-6 flex items-center justify-between">
+<div>
+<h3 class="text-[13px] uppercase tracking-wider font-mono text-[#888888]">Territorio di Manovra</h3>
+<p class="text-[15px] font-medium text-white mt-0.5">Corridoio Mezzala destra &amp; Zona 14-R</p>
+</div>
+<span class="text-[12px] font-mono text-[#38BDF8] bg-[#38BDF8]/10 px-2 py-0.5 rounded border border-[#38BDF8]/25">Heatmap 24/25</span>
+</div>
+<!-- Pitch Vector Illustration -->
+<div class="relative w-full aspect-[16/10] bg-[#0A0A0A] border border-[rgba(255,255,255,0.15)] rounded p-4 mb-6">
+<!-- Tactical Field Lines -->
+<svg class="w-full h-full" fill="none" stroke="rgba(255,255,255,0.18)" stroke-width="1" viewbox="0 0 400 250">
+<!-- Outer boundary -->
+<rect height="230" rx="2" width="380" x="10" y="10"></rect>
+<!-- Halfway line & center circle -->
+<line x1="200" x2="200" y1="10" y2="240"></line>
+<circle cx="200" cy="125" r="38"></circle>
+<circle cx="200" cy="125" fill="rgba(255,255,255,0.3)" r="1.5"></circle>
+<!-- Left penalty box -->
+<rect height="140" width="64" x="10" y="55"></rect>
+<rect height="74" width="24" x="10" y="88"></rect>
+<!-- Right penalty box -->
+<rect height="140" width="64" x="326" y="55"></rect>
+<rect height="74" width="24" x="366" y="88"></rect>
+<!-- Heatmap Zone: Dominant Half-space / Mezzala Right Corridor -->
+<defs>
+<radialgradient cx="50%" cy="50%" id="heatPrimary" r="50%">
+<stop offset="0%" stop-color="#10B981" stop-opacity="0.55"></stop>
+<stop offset="60%" stop-color="#10B981" stop-opacity="0.2"></stop>
+<stop offset="100%" stop-color="#10B981" stop-opacity="0"></stop>
+</radialgradient>
+<radialgradient cx="50%" cy="50%" id="heatSecondary" r="50%">
+<stop offset="0%" stop-color="#38BDF8" stop-opacity="0.4"></stop>
+<stop offset="100%" stop-color="#38BDF8" stop-opacity="0"></stop>
+</radialgradient>
+</defs>
+<ellipse cx="245" cy="170" fill="url(#heatPrimary)" rx="60" ry="42"></ellipse>
+<ellipse cx="290" cy="160" fill="url(#heatPrimary)" rx="40" ry="32"></ellipse>
+<ellipse cx="190" cy="165" fill="url(#heatSecondary)" rx="45" ry="34"></ellipse>
+<!-- Attack Direction Indicator -->
+<path d="M 160 30 L 240 30 M 235 25 L 242 30 L 235 35" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"></path>
+<text fill="rgba(255,255,255,0.4)" font-family="sans-serif" font-size="9" text-anchor="middle" x="200" y="24">DIREZIONE D'ATTACCO</text>
+</svg>
+</div>
+<!-- Zone Insights -->
+<div class="space-y-2 text-[13px]">
+<div class="flex items-center justify-between py-2 border-b border-[rgba(255,255,255,0.08)]">
+<span class="text-[#888888]">Presenza nel semi-spazio destro:</span>
+<span class="text-white font-mono font-medium">54.2% tocchi totali</span>
+</div>
+<div class="flex items-center justify-between py-2 border-b border-[rgba(255,255,255,0.08)]">
+<span class="text-[#888888]">Verticalizzazioni verso l'esterno (Dumfries/Darmian):</span>
+<span class="text-white font-mono font-medium">4.6 per match</span>
+</div>
+<div class="flex items-center justify-between py-2">
+<span class="text-[#888888]">Pressione sul primo costruttore avversario:</span>
+<span class="text-[#10B981] font-mono font-medium">23.4 azioni/90 (Elite)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Two plain text columns: Punti di forza (Strong against) & Situazioni critiche (Struggles against) -->
+<section class="grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 pt-4">
+<!-- Strong against -->
+<div>
+<div class="flex items-center justify-between mb-8 pb-3 border-b border-[rgba(255,255,255,0.2)]">
+<h2 class="text-[13px] font-mono uppercase tracking-wider text-[#10B981] flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#10B981]"></span>
+        Punti di forza / Efficacia tattica
+      </h2>
+<span class="text-[11px] font-mono text-[#888888]">Delta Expected Threat (xT)</span>
+</div>
+<div class="space-y-0 text-[15px]">
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Linee di blocco medio (Mid-block)</div>
+<div class="text-[12px] text-[#888888]">Capacità di ricezione alle spalle dei mediani</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">88</span>
+<span class="block text-[11px] font-mono text-[#10B981]">+0.42 xT</span>
+</div>
+</div>
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Transizioni su palla inattiva e turnover</div>
+<div class="text-[12px] text-[#888888]">Ribaltamento rapido fronte offensivo</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">92</span>
+<span class="block text-[11px] font-mono text-[#10B981]">+3.1 recuperi</span>
+</div>
+</div>
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Attacco contro linee difensive alte</div>
+<div class="text-[12px] text-[#888888]">Passante filtrante alle spalle dei centrali</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">85</span>
+<span class="block text-[11px] font-mono text-[#10B981]">+0.38 xA/90</span>
+</div>
+</div>
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Contro-pressing d'anticipo</div>
+<div class="text-[12px] text-[#888888]">Soffocamento ripartenza entro 5 secondi</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">91</span>
+<span class="block text-[11px] font-mono text-[#10B981]">82% successo</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Struggles against -->
+<div>
+<div class="flex items-center justify-between mb-8 pb-3 border-b border-[rgba(255,255,255,0.2)]">
+<h2 class="text-[13px] font-mono uppercase tracking-wider text-[#F43F5E] flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-[#F43F5E]"></span>
+        Situazioni critiche / Vulnerabilità
+      </h2>
+<span class="text-[11px] font-mono text-[#888888]">Divergenza rendimento</span>
+</div>
+<div class="space-y-0 text-[15px]">
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Marcatura a uomo asfissiante</div>
+<div class="text-[12px] text-[#888888]">Limitazione tempi di rotazione e ricezione orientata</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">41</span>
+<span class="block text-[11px] font-mono text-[#F43F5E]">-18% precisione pass.</span>
+</div>
+</div>
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Area di rigore ad alta densità (Low Block)</div>
+<div class="text-[12px] text-[#888888]">Spazi ridotti per finalizzazione diretta</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">48</span>
+<span class="block text-[11px] font-mono text-[#F43F5E]">-0.19 npxG/90</span>
+</div>
+</div>
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Duelli aerei fisici su palla lunga</div>
+<div class="text-[12px] text-[#888888]">Svantaggio dimensionale (172 cm) sui rilanci</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">36</span>
+<span class="block text-[11px] font-mono text-[#F43F5E]">32% duelli vinti</span>
+</div>
+</div>
+<div class="hairline-b py-4 flex justify-between items-center">
+<div>
+<div class="text-white font-medium">Gestione falli tattici e cartellini</div>
+<div class="text-[12px] text-[#888888]">Intensità agonistica elevata in fase di ripiegamento</div>
+</div>
+<div class="text-right">
+<span class="text-white tabular font-medium text-[16px]">44</span>
+<span class="block text-[11px] font-mono text-[#F43F5E]">0.34 ammonizioni/90</span>
+</div>
+</div>
+</div>
+</div>
+</section></main>
+<!-- Footer: just Tactix and Milano, Firenze, Torino in small grey text -->
+<footer class="w-full px-8 md:px-14 py-16 flex items-center justify-between text-[12px] text-[#888888] font-normal">
+<span>Tactix</span>
+<span>Milano, Firenze, Torino</span>
+</footer>
+</body>
+</html>

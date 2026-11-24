@@ -1,0 +1,8 @@
+---
+description: Standard per scraping, ETL e batch AI in Python
+alwaysApply: true
+---
+- Ogni connettore dati deve implementare un'interfaccia Adapter separata dal motore tattico.
+- Tutti gli script di ingestion devono essere idempotenti (UPSERT su Supabase tramite chiavi univoche) e usare retry con backoff esponenziale + rate limiting gentile tra le richieste.
+- Usa `curl_cffi` (impersonate Chrome) per endpoint JSON non ufficiali, gestendo esplicitamente HTTP 403/429 con fallback e log chiari.
+- Le chiamate a Gemini API devono usare Structured Outputs (schema JSON/Pydantic rigoroso) ed essere eseguite solo se il match/giocatore non è già stato analizzato per quella giornata (caching su DB).

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tactix</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    * {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      height: 100%;
+      width: 100%;
+      background-color: #000000;
+      color: #FFFFFF;
+      overflow: hidden;
+    }
+    .fade-in {
+      animation: fadeIn 600ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .nav-link {
+      color: #FFFFFF;
+      text-decoration: none;
+      position: relative;
+      transition: opacity 0.2s ease;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+      text-decoration-thickness: 1px;
+    }
+    .hero-title {
+      font-weight: 500;
+      letter-spacing: -0.04em;
+      line-height: 0.95;
+    }
+  </style>
+</head>
+<body class="relative h-screen w-screen bg-black text-white select-none fade-in">
+  <!-- Full-bleed background photo -->
+  <div class="absolute inset-0 z-0">
+    <img 
+      src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJWwFY9kCtLddAmo_gGewzv0A0Y3eUfCqDHloSLP60yk5PePU84iGMUHFI32XCickHXTi35N-sX7MKcv3yjTNPH9z8P9jPG4pZQEPCnElu-sxKwPwKaz2mw3QhNQalVRkNVz6fefR3Mvd7TZ7usOeKTcVu9nEfO14dsj5FKDX8MS37If9gDMYs6P-BPq_Z_77ZYQ7y5SSQd-lXBq7RpGQZibB2Jh9HBuKWqnE9-Pe4" 
+      alt="Football pitch grass with painted line" 
+      class="w-full h-full object-cover object-center filter brightness-90 contrast-95"
+    />
+    <!-- Light dark tint only for legibility -->
+    <div class="absolute inset-0 bg-black/35 pointer-events-none"></div>
+  </div>
+
+  <!-- Top bar, tiny and quiet -->
+  <header class="relative z-10 w-full px-8 md:px-14 pt-8 md:pt-10 flex items-center justify-between text-[12px] font-normal tracking-normal text-white">
+    <div class="w-1/4">
+      <a href="#" class="nav-link">Tactix</a>
+    </div>
+
+    <nav class="flex items-center justify-center space-x-10 text-center w-2/4">
+      <a href="#" class="nav-link">Matches</a>
+      <a href="#" class="nav-link">Teams</a>
+      <a href="#" class="nav-link">Players</a>
+      <a href="#" class="nav-link">About</a>
+    </nav>
+
+    <div class="w-1/4 text-right">
+      <a href="#" class="nav-link">Subscribe</a>
+    </div>
+  </header>
+
+  <!-- One single line of text, placed at about one third from the top-left -->
+  <main class="relative z-10 px-8 md:px-14 pt-[18vh] md:pt-[22vh]">
+    <h1 class="hero-title text-[64px] sm:text-[84px] md:text-[112px] text-white max-w-4xl">
+      We read football.
+    </h1>
+  </main>
+</body>
+</html>

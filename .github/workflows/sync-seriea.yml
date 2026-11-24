@@ -1,0 +1,106 @@
+name: Sync Serie A Tactical Pipeline
+
+on:
+  schedule:
+    # Monday 23:30 UTC — post-matchweek ingestion, tactical engine & post-match AI briefs
+    - cron: "30 23 * * 1"
+    # Thursday 16:00 UTC — pre-matchweek matchup scoring, AI briefs & keeps Supabase Free active
+    - cron: "0 16 * * 4"
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: "Pipeline execution mode"
+        required: true
+        default: "full"
+        type: choice
+        options:
+          - post_match
+          - pre_match
+          - full
+          - dry_run
+          - check_connectivity
+      skip_ai:
+        description: "Skip Gemini AI brief generation"
+        required: false
+        default: false
+        type: boolean
+      round:
+        description: "Optional specific round (1-38)"
+        required: false
+        default: ""
+        type: string
+
+concurrency:
+  group: sync-seriea
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    defaults:
+      run:
+        working-directory: pipeline
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Install uv & Python 3.12
+        uses: astral-sh/setup-uv@v5
+        with:
+          python-version: "3.12"
+          enable-cache: true
+          cache-dependency-glob: "pipeline/pyproject.toml"
+
+      - name: Install pipeline dependencies
+        run: uv sync --no-install-project
+
+      - name: Run deterministic engine unit tests
+        run: uv run pytest -q
+
+      - name: Resolve execution mode
+        id: mode
+        shell: bash
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "run_mode=${{ github.event.inputs.mode }}" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "30 23 * * 1" ]; then
+            echo "run_mode=post_match" >> "$GITHUB_OUTPUT"
+          elif [ "${{ github.event.schedule }}" = "0 16 * * 4" ]; then
+            echo "run_mode=pre_match" >> "$GITHUB_OUTPUT"
+          else
+            echo "run_mode=full" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Run connectivity check
+        if: steps.mode.outputs.run_mode == 'check_connectivity'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL || 'gemini-2.5-flash' }}
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          FOOTBALL_API_PROVIDER: ${{ secrets.FOOTBALL_API_PROVIDER || 'football_data' }}
+          SEASON: ${{ secrets.SEASON || '2026/27' }}
+        run: uv run python check_connectivity.py
+
+      - name: Run Serie A sync pipeline
+        if: steps.mode.outputs.run_mode != 'check_connectivity'
+        env:
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_MODEL: ${{ secrets.GEMINI_MODEL || 'gemini-2.5-flash' }}
+          FOOTBALL_API_KEY: ${{ secrets.FOOTBALL_API_KEY }}
+          FOOTBALL_API_PROVIDER: ${{ secrets.FOOTBALL_API_PROVIDER || 'football_data' }}
+          SEASON: ${{ secrets.SEASON || '2026/27' }}
+        run: |
+          ARGS="--mode=${{ steps.mode.outputs.run_mode }}"
+          if [ "${{ github.event.inputs.skip_ai }}" = "true" ]; then
+            ARGS="$ARGS --skip-ai"
+          fi
+          if [ -n "${{ github.event.inputs.round }}" ]; then
+            ARGS="$ARGS --round=${{ github.event.inputs.round }}"
+          fi
+          uv run python run_sync.py $ARGS

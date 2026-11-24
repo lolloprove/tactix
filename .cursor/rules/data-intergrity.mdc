@@ -1,0 +1,8 @@
+---
+description: Regole inviolabili su integrità statistica, soglie campionarie e sicurezza DB
+alwaysApply: true
+---
+- Mai inventare, interpolare o hardcodare statistiche calcistiche in produzione. Se un dato manca, restituisci `null` e mostra uno stato esplicito "Dati insufficienti".
+- Ogni statistica condizionata (es. giocatore contro un archetipo o squadra contro un modulo) DEVE includere `sample_minutes` o `sample_matches` e un flag `confidence` (`low` < 270 min / 3 partite, `medium` 270-540 min, `high` > 540 min).
+- Mai esporre `SUPABASE_SERVICE_ROLE_KEY` o `GEMINI_API_KEY` al frontend (niente prefisso `NEXT_PUBLIC_`). Tutte le tabelle Supabase devono avere RLS attivo con policy `SELECT` pubblica in sola lettura.
+- La matematica (delta, Z-score, PPDA, archetipi, mismatch) va calcolata SOLO in Python/SQL. Gli LLM ricevono solo JSON già aggregati per generare testo editoriale.
